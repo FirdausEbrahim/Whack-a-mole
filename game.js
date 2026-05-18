@@ -20,6 +20,7 @@ var messageArea = document.getElementById("messageArea");
 var logArea = document.getElementById("logArea");
 var holeButtons = document.querySelectorAll(".mole-hole");
 const sound = new Audio('button-click(chosic.com).mp3');
+var hitSound = document.getElementById("hitSound");
 
 
 // Arrays
@@ -228,7 +229,11 @@ function getPoints(type) {
   if (gameState.doublePoints === true) {
     points = points * 2;
   }
-whackMole();
+function whackMole() {
+  sound.currentTime = 0;
+  sound.play().catch(err => console.log("Audio blocked:", err));
+}
+
  return points;
 }
 
@@ -238,7 +243,6 @@ function whackMole() {
   sound.currentTime = 0; 
   sound.play();
 
-  console.log("Test")
 }
 
 // Functions with parameters
@@ -528,6 +532,14 @@ function clickHole(event) {
 
     selectedHole.hideMole();
     currentHoleIndex = -1;
+    
+// Play hit sound if enabled
+   if (gameState.sound === true) {
+  hitSound.currentTime = 0;
+  hitSound.play();
+
+}
+
   } else {
     gameState.addMiss();
   }
