@@ -19,6 +19,8 @@ var displayBestScore = document.getElementById("displayBestScore");
 var messageArea = document.getElementById("messageArea");
 var logArea = document.getElementById("logArea");
 var holeButtons = document.querySelectorAll(".mole-hole");
+const sound = new Audio('button-click(chosic.com).mp3');
+
 
 // Arrays
 var holes = [];
@@ -226,10 +228,18 @@ function getPoints(type) {
   if (gameState.doublePoints === true) {
     points = points * 2;
   }
-
-  return points;
+whackMole();
+ return points;
 }
 
+//whack a mole sound effect
+
+function whackMole() {
+  sound.currentTime = 0; 
+  sound.play();
+
+  console.log("Test")
+}
 
 // Functions with parameters
 function setCookie(name, value, days) {
