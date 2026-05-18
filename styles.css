@@ -145,8 +145,8 @@ button:disabled {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    border: 4px solid #6b4f2a;
-    background: radial-gradient(circle at center, #4a2f18 35%, #7b5a34 100%);
+    border: 4px solid #795423;
+    background: radial-gradient(circle at center, #74441a 35%, #794f1f 100%);
     position: relative;
     overflow: hidden;
     padding: 0;
